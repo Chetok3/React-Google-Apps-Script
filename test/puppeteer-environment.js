@@ -12,7 +12,6 @@ const DIR = path.join(os.tmpdir(), 'jest_puppeteer_global_setup');
 
 export default class PuppeteerEnvironment extends NodeEnvironment.TestEnvironment {
   async setup() {
-    await super.setup();
     // get the wsEndpoint
     const wsEndpoint = await readFile(path.join(DIR, 'wsEndpoint'), 'utf8');
     if (!wsEndpoint) {
