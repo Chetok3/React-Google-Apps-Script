@@ -24,7 +24,7 @@ try {
     console.log('Using NodeEnvironment directly as constructor');
     NodeEnvironmentClass = NodeEnvironment;
   } else if (
-    NodeEnvironment.default && 
+    NodeEnvironment.default &&
     typeof NodeEnvironment.default === 'function'
   ) {
     console.log('Using NodeEnvironment.default as constructor');
@@ -37,7 +37,7 @@ try {
     console.log('Falling back to direct import');
     NodeEnvironmentClass = NodeEnvironment;
   }
-  
+
   // Verify we have a valid constructor
   if (typeof NodeEnvironmentClass !== 'function') {
     console.error(
