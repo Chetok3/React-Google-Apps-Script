@@ -72,6 +72,6 @@ jobs:
           NODE_OPTIONS: '--max_old_space_size=4096'
       - name: Run integration tests
         # use ci-reporter to publish failing diff images to s3 bucket
-        # run: yarn test:integration:extended:ci-reporter
-        run: yarn test:integration:extended
+        run: yarn test:integration:extended:ci-reporter
+        # run: yarn test:integration:extended
         shell: bash
