@@ -1,7 +1,7 @@
 export const openAddon = async (page) => {
   await page.goto(process.env.SHEET_URL);
 
-  await page.waitForTimeout(10000); // pause for 10 seconds
+  await page.waitForTimeout(5000); // pause for 5 seconds
   // take screenshot
   await page.screenshot({
     path: 'test/__image_snapshots__/__diff_output__/main-spreadsheet-page.png',
