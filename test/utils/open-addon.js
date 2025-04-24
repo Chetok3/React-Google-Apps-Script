@@ -1,7 +1,7 @@
 export const openAddon = async (page) => {
   await page.goto(process.env.SHEET_URL);
 
-  await page.waitForTimeout(10000); // pause for 5 seconds
+  await page.waitForTimeout(20000); // pause for 5 seconds
 
   // Create directory for screenshots if it doesn't exist
   const fs = await import('fs');
