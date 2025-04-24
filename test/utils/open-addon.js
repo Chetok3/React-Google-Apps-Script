@@ -1,10 +1,19 @@
 export const openAddon = async (page) => {
   await page.goto(process.env.SHEET_URL);
 
-  await page.waitForTimeout(5000); // pause for 5 seconds
+  await page.waitForTimeout(7000); // pause for 5 seconds
+
+  // Create directory for screenshots if it doesn't exist
+  const fs = await import('fs');
+  const path = await import('path');
+  const screenshotDir = 'test/__image_snapshots__/__diff_output__';
+  if (!fs.existsSync(screenshotDir)) {
+    fs.mkdirSync(screenshotDir, { recursive: true });
+  }
+
   // take screenshot
   await page.screenshot({
-    path: 'test/__image_snapshots__/__diff_output__/main-spreadsheet-page.png',
+    path: path.join(screenshotDir, 'main-spreadsheet-page.png'),
   });
   await page.click('a:nth-child(2)'); // click on signin button
 

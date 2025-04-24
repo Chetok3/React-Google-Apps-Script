@@ -45,7 +45,7 @@ try {
       typeof NodeEnvironmentClass
     );
     // Last resort fallback - use dynamic import to avoid linter warning
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line no-new-func
     const fallbackEnv = Function('return require("jest-environment-node")')();
     NodeEnvironmentClass = fallbackEnv.default || fallbackEnv;
   }
