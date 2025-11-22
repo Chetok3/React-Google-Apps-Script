@@ -4342,10 +4342,10 @@ gas-client@1.2.1:
   dependencies:
     uuid "^9.0.0"
 
-gas-types-detailed@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/gas-types-detailed/-/gas-types-detailed-1.1.2.tgz#c6cb5fb87198da6967a75166ce65996ddd5ced30"
-  integrity sha512-QqGcuS6Ikuvq8JpxcfZpEuygx8+COzmQYBYpcx6icEbXylCGNhyVcZb1xNnREWrU1PLg5luMvcpSXEUZJYMCbA==
+gas-types-detailed@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/gas-types-detailed/-/gas-types-detailed-1.1.3.tgz#8e2e117edbaee98a6af6ae4ca10353101ce1b861"
+  integrity sha512-fW1KsmGc0QC+LiM5PCn0ooM8uGOlBNDZ9a03xatOfHlw4kPQEpaSuXD6AszI4zoYGAb0pS8OOwmcDQRR9VXg6Q==
 
 gaxios@^4.0.0, gaxios@^4.2.1:
   version "4.3.3"
