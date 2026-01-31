@@ -16,29 +16,9 @@ const devServerWrapper = './dev/dev-server-wrapper.html';
 
 const clientEntrypoints = [
   {
-    name: 'CLIENT - Dialog Demo',
-    filename: 'dialog-demo', // we'll add the .html suffix to these
-    template: 'dialog-demo/index.html',
-  },
-  {
-    name: 'CLIENT - Dialog Demo Bootstrap',
-    filename: 'dialog-demo-bootstrap',
-    template: 'dialog-demo-bootstrap/index.html',
-  },
-  {
-    name: 'CLIENT - Dialog Demo MUI',
-    filename: 'dialog-demo-mui',
-    template: 'dialog-demo-mui/index.html',
-  },
-  {
-    name: 'CLIENT - Dialog Demo Tailwind CSS',
-    filename: 'dialog-demo-tailwindcss',
-    template: 'dialog-demo-tailwindcss/index.html',
-  },
-  {
-    name: 'CLIENT - Sidebar About Page',
-    filename: 'sidebar-about-page',
-    template: 'sidebar-about-page/index.html',
+    name: 'CLIENT - Dialog Mafia',
+    filename: 'scalpi', // we'll add the .html suffix to these
+    template: 'scalpi/index.html',
   },
 ];
 
@@ -48,6 +28,7 @@ const pfxPath = resolve(__dirname, './certs/cert.pfx'); // if needed for Windows
 
 const devServerOptions: ServerOptions = {
   port: PORT,
+  host: '127.0.0.1',
 };
 
 // use key and cert settings only if they are found
@@ -111,7 +92,6 @@ const clientBuildConfig = ({
             'react-dom': 'ReactDOM',
             'react-transition-group': 'ReactTransitionGroup',
             'react-bootstrap': 'ReactBootstrap',
-            '@mui/material': 'MaterialUI',
             '@emotion/react': 'emotionReact',
             '@emotion/styled': 'emotionStyled',
             'gas-client': 'GASClient',
