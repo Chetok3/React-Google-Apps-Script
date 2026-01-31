@@ -28,7 +28,12 @@ interface CashierCardProps {
   employees: Employee[];
   setTaxCashless: (value: number) => Promise<void>;
 }
-const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCardProps) => {
+const CashierCard = ({
+  cashier,
+  onUpdate,
+  employees,
+  setTaxCashless,
+}: CashierCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   type variantI = 'Пополнение' | 'Расход' | 'Инкассация' | null;
   const [variant, setVariant] = useState<variantI>(null);
@@ -46,8 +51,8 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
     setTaxCashless(value).finally(() => setIsLoadingTaxCashless(false));
   };
   useEffect(() => {
-    setTax(cashier?.taxCashless || 0)
-  }, [cashier])
+    setTax(cashier?.taxCashless || 0);
+  }, [cashier]);
   const getMaxAmount = () => {
     if (!cashier) return undefined;
     if (variant === 'Инкассация') {
@@ -80,8 +85,9 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
     if (!selectedEmployee || !variant) return;
     addToast({
       title: variant,
-      description: `Операция ${variant}. Сотрудник ${selectedEmployee.name
-        }. Сумма ${amount.toFixed(2)}. ${isCash ? 'Нал' : 'Безнал'}`,
+      description: `Операция ${variant}. Сотрудник ${
+        selectedEmployee.name
+      }. Сумма ${amount.toFixed(2)}. ${isCash ? 'Нал' : 'Безнал'}`,
       classNames: {
         icon: 'text-success',
       },
@@ -141,8 +147,9 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
           <p className="text-md text-default-500">Наличные</p>
           {cashier ? (
             <p
-              className={`text-xl font-semibold ${cashier.cash >= 0 ? 'text-success' : 'text-danger'
-                }`}
+              className={`text-xl font-semibold ${
+                cashier.cash >= 0 ? 'text-success' : 'text-danger'
+              }`}
             >
               {cashier.cash.toFixed(2)}
             </p>
@@ -155,8 +162,9 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
             <p className="text-md text-default-500">Безнал</p>
             {cashier ? (
               <p
-                className={`text-xl font-semibold ${cashier.cashless >= 0 ? 'text-success' : 'text-danger'
-                  }`}
+                className={`text-xl font-semibold ${
+                  cashier.cashless >= 0 ? 'text-success' : 'text-danger'
+                }`}
               >
                 {cashier.cashless.toFixed(2)}
               </p>
@@ -176,14 +184,22 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
               onValueChange={setTax}
               hideStepper={true}
               startContent={<div className="pointer-events-none">%</div>}
-              endContent={<Button isIconOnly size="sm" variant="light" color='success' isLoading={isLoadingTaxCashless} onPress={() => handleSetTaxCashless(taxCashless)}>
-                <Icon icon="mdi:success" width={20} height={20} />
-              </Button>}
+              endContent={
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant="light"
+                  color="success"
+                  isLoading={isLoadingTaxCashless}
+                  onPress={() => handleSetTaxCashless(taxCashless)}
+                >
+                  <Icon icon="mdi:success" width={20} height={20} />
+                </Button>
+              }
             />
           ) : (
             <Spinner />
           )}
-
         </div>
       </CardBody>
 
@@ -207,7 +223,7 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
             onPress={() => {
               handleOpenModal('Инкассация');
             }}
-          // startContent={<ArrowDownCircle size={18} />}
+            // startContent={<ArrowDownCircle size={18} />}
           >
             Инкассация
           </Button>
@@ -217,7 +233,7 @@ const CashierCard = ({ cashier, onUpdate, employees, setTaxCashless }: CashierCa
             onPress={() => {
               handleOpenModal('Расход');
             }}
-          // startContent={<MinusCircle size={18} />}
+            // startContent={<MinusCircle size={18} />}
           >
             Расход
           </Button>
